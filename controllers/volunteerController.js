@@ -1,10 +1,10 @@
 const volunteerService = require('../services/volunteerService');
 
- exports.register = async(req,res,next) =>{
+ exports.register = async(req,res) =>{
     try{
         const {name,skills,phoneno} = req.body;
         console.log(name,skills,phoneno);
-        const sucessRes = await volunteerService.volunteerSignup(name,skills,phoneno);
+        await volunteerService.volunteerSignup(name,skills,phoneno);
         res.json({status:true,message:"successfully registered....!"});
         
     }catch(err){
@@ -28,10 +28,10 @@ exports.updateAvailabilityTrue = async(req,res)=>{
     try {
         const {name,phoneno} = req.body;
         await volunteerService.updateVolunteerSetTrue(name,phoneno);
-        res.json({status:true,message:"update Sucessfully...!"});
+        res.status(200).json({message:"update Sucessfully...!"});
 
         
     } catch (error) {
-        res.json({status:false,message:"Volunteer is not updated"});
+        res.status(404).json({status:false,message:"Volunteer is not updated"});
     }
 }
