@@ -28,7 +28,7 @@ class postService{
     static async assignVolunteer(id,name,phoneno){
         try {
             const volunteer = await volunteerdetail.find({name,phoneno});
-            if(volunteer.availability===true){
+            if(volunteer[0].availability===true){
                 return await volunteerdetail.updateOne({name,phoneno},{$set:{id}});
             }else{
                 throw new Error("Already Assigned for the work..!");
