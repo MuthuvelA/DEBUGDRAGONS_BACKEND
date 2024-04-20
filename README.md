@@ -7,10 +7,10 @@ The template repository for definehack2024
 Tell us about your project here
 
 ### Team Members
-[1.MUTHUVEL A](MuthuvelA)   
-[2.PRAKASH KUMAR M](Pra-Kas)   
-[3.KAMALESH R](kamaleshbala01)   
-[4.GOPINATH S](igopi77)   
+[1.MUTHUVEL A](https://github.com/MuthuvelA)   
+[2.PRAKASH KUMAR M](https://github.com/Pra-Kas)   
+[3.KAMALESH R](https://github.com/kamaleshbala01)   
+[4.GOPINATH S](https://github.com/igopi77)   
 
 ### Link to Project
 [Embed the live link of project](live_link)
