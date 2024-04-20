@@ -9,18 +9,16 @@ const volunteerSchema = new Schema({
         required:true
     },
     availability:{
-        type:String,
+        type:Boolean,
         default:true
     },
     skills:{
-        type:String
+        type:Array
     },
-    contactno:{
+    phoneno:{
         type:String
     }
 });
 
 
-const volunteerModel = db.model('volunteerDetails',volunteerSchema);
-
-module.exports = volunteerModel;
+module.exports = db.model('volunteerDetails',volunteerSchema);
