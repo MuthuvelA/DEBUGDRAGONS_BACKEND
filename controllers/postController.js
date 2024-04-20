@@ -4,10 +4,12 @@ exports.addPost =async(req,res)=>{
     try {
         const {base64 , location} = req.body;
         await postService.addPost(base64,location.long,location.lat);
-        res.status(200).json({message:"Post Added Sucessfully"});
+        console.log("add post ...!");
+        res.status(200).json({status:true,message:"Post Added Sucessfully"});
         
     } catch (error) {
-        res.json({message:error.message});
+        console.log(error.message);
+        res.status(404).json({status:false,message:error.message});
     }
 }
 

@@ -24,9 +24,6 @@ const volunteerSchema = new Schema({
         type:Boolean,
         default:true
     },
-    skills:{
-        type:Array
-    },
     phoneno:{
         type:String,
         unique:true
@@ -34,4 +31,4 @@ const volunteerSchema = new Schema({
 });
 
 
-module.exports = db.model('volunteerDetails',volunteerSchema);
+module.exports = db.model('queueVolunteerDetails',volunteerSchema);
