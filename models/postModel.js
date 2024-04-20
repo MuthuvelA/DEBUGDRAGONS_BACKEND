@@ -7,7 +7,8 @@ const postSchema = new Schema({
         required:true
     },
     base64:{
-        type:String
+        type:String,
+        default:""
     },
     location:{
         long:{
