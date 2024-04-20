@@ -15,8 +15,28 @@ exports.assignVolunteer = async(req,res)=>{
     try {
         const {id,name,phoneno} = req.body;
         await postService.assignVolunteer(id,name,phoneno);
-        res.status(200).json({message:"usigned Sucessfully....!"}); 
+        res.status(200).json({message:"assigned Sucessfully....!"}); 
     } catch (error) {
-        res.status(404).json({message:"Unable to assign"});
+        res.status(404).json({message:error.message});
+    }
+}
+
+exports.deletePost = async(req,res)=>{
+    try {
+        const {id,name,phoneno} = req.body;
+        await postService.deletePost(id,name,phoneno);
+        res.status(200).json({message:"deleted sucessfully....!"});
+        
+    } catch (error) {
+        res.status(404).json({message:error.message});
+    }
+}
+
+exports.getAllPost = async(req,res)=>{
+    try {
+        const allPost = await postService.getAllPost();
+        res.status(200).json({message:allPost});
+    } catch (error) {
+        res.status(404).json({message:error.message});
     }
 }
