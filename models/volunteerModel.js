@@ -4,6 +4,10 @@ const db = require('../config/db');
 const { Schema } = mongo;
 
 const volunteerSchema = new Schema({
+    id:{
+        type:String,
+        default:""
+    },
     name:{
         type:String,
         required:true
