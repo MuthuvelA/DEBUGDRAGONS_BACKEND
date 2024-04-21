@@ -7,4 +7,5 @@ router.post('/setAvailabilityTrue',volunteerController.updateAvailabilityTrue);
 router.post('/login',volunteerController.login);
 router.post('/checkPhone',volunteerController.checkPhone);
 router.post("/checkUsername",volunteerController.checkUsername);
+router.post('/getAsignedUnAsigned',volunteerController.getAsignedAndUnAsigned);
 module.exports = router;

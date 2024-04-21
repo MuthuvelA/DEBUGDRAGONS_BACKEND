@@ -76,3 +76,14 @@ exports.checkUsername = async(req,res)=>{
         res.status(404).json({message:error.message});
     }
 }
+
+exports.getAsignedAndUnAsigned = async(req,res)=>{
+    try {
+        const {id} = req.body;
+        const asigned = await volunteerService.getAssignedVolunteer(id);
+        const unAsigned = await volunteerService.getUnAssignedVolunteer();
+        res.status(200).json({status:true,message:"sucessfull",assigned:asigned,unasigned:unAsigned});
+    } catch (error) {
+        res.status(404).json({status:false,message:error.message});
+    }
+}

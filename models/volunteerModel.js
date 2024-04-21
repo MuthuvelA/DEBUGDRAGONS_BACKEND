@@ -24,9 +24,6 @@ const volunteerSchema = new Schema({
         type:Boolean,
         default:true
     },
-    skills:{
-        type:Array
-    },
     phoneno:{
         type:String,
         unique:true
