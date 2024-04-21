@@ -12,11 +12,15 @@ const postSchema = new Schema({
     },
     location:{
         long:{
-            type:String,
+            type:Number,
         },
         lat:{
-            type:String
+            type:Number
         }
+    },
+    priority:{
+        type:Number,
+        default:1
     }
 });
 
