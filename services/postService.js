@@ -59,6 +59,14 @@ class postService{
             throw error;
         }
     }
+
+    static async updatePost(id,priority){
+        try {
+            return post.updateOne({id},{$set:{priority}});
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = postService;
