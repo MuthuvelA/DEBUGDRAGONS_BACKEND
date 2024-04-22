@@ -14,17 +14,17 @@ class postService{
         }
     }
 
-    static async deletePost(id,name,phoneno){
+    static async deletePost(id,username){
         try {
             const collection = db.collection("adminDetails");
-            const isAdmin = (await collection.findOne({name,phoneno})==null);
+            const isAdmin = (await collection.findOne({username})==null);
             if(isAdmin){
-                 const volunteer = await volunteerdetail.findOne({name,phoneno});
+                 const volunteer = await volunteerdetail.findOne({username});
                  if(volunteer.id==id){
                     await volunteerdetail.updateMany({id},{$set:{id:"",availability:true}});
                     return await post.deleteOne({id});
                 }else{
-                    throw new Error("ID not matched....!");
+                    throw new Error("you are not Authorized volunteer....!");
                 }
             }else{
                 await volunteerdetail.updateMany({id},{$set:{id:"",availability:true}});
@@ -36,13 +36,13 @@ class postService{
         }
     }
 
-    static async assignVolunteer(id,name,phoneno){
+    static async assignVolunteer(id,username){
         try {
-            const volunteer = await volunteerdetail.find({name,phoneno});
+            const volunteer = await volunteerdetail.find({username});
             console.log(volunteer);
             if(volunteer[0].availability){
                 console.log("inside if : ");
-                return await volunteerdetail.updateOne({name,phoneno},{$set:{id,availability:false}});
+                return await volunteerdetail.updateOne({username},{$set:{id,availability:false}});
             }else{
                 throw new Error("Already Assigned for the work..!");
             }
@@ -53,7 +53,7 @@ class postService{
 
     static async getAllPost(){
         try {
-            const allPost = await post.find().sort({id:-1});
+            const allPost = await post.find().sort({priority:-1});
             return allPost;
         } catch (error) {
             throw error;

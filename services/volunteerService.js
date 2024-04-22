@@ -34,7 +34,7 @@ class volunteerService{
 
     static async updateVolunteerSetTrue(username){
         try {
-            return await volunteerModel.updateOne({username},{$set:{availability:true}});
+            return await volunteerModel.updateOne({username},{$set:{id:"",availability:true}});
         } catch (error) {
           throw error;   
         }
@@ -54,6 +54,22 @@ class volunteerService{
             else return;
         } catch (error) {
             throw error;
+        }
+    }
+
+    static async getAssignedVolunteer(id){
+        try {
+            return await volunteerModel.find({id});
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async getUnAssignedVolunteer(){
+        try {
+            return await volunteerModel.find({id:""});
+        } catch (error) {
+         throw error;   
         }
     }
 }
