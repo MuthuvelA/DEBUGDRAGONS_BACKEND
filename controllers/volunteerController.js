@@ -41,6 +41,7 @@ exports.login = async(req,res)=>{
     try {
         console.log("hello");
         const {username , password , isAdmin} = req.body;
+        console.log(isAdmin);
         const collectionName = (isAdmin?"adminDetails":"volunteerdetails");
         const result = await volunteerService.login(username,collectionName);
         if(result==null){
